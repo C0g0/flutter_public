@@ -46,7 +46,9 @@ class HomeController extends GetxController {
 
   bool get isLoading => _isLoading.value;
 
-  int currentPage = 2;
+  int currentPageCharacter = 2;
+  int currentPageEpisode = 2;
+  int currentPageLocation = 2;
 
   final views = [
     const CharactersPage(),
@@ -97,7 +99,7 @@ class HomeController extends GetxController {
   Future<void> searchCharacters({String? filterWord, String? filterBy}) async {
     if (_isLoading.value) return;
     _searchingCharacters.value = true;
-    currentPage = 2;
+    currentPageCharacter = 2;
     try {
       List<Character> characters = await _repository.getCharacters(
           filterBy: filterBy, filterWord: filterWord ?? '', page: 1);
@@ -114,7 +116,7 @@ class HomeController extends GetxController {
   Future<void> searchEpisodes({String? filterWord, String? filterBy}) async {
     if (_isLoading.value) return;
     _searchingEpisodes.value = true;
-    currentPage = 2;
+    currentPageEpisode = 2;
     try {
       List<Episode> episodes = await _repository.getEpisodes(
           filterBy: filterBy, filterWord: filterWord ?? '', page: 1);
@@ -131,7 +133,7 @@ class HomeController extends GetxController {
   Future<void> searchLocations({String? filterWord, String? filterBy}) async {
     if (_isLoading.value) return;
     _searchingLocations.value = true;
-    currentPage = 2;
+    currentPageLocation = 2;
     try {
       List<Location> locations = await _repository.getLocations(
           filterBy: filterBy, filterWord: filterWord ?? '', page: 1);
@@ -150,9 +152,11 @@ class HomeController extends GetxController {
     _isLoading.value = true;
     try {
       List<Character> characters = await _repository.getCharacters(
-          filterBy: filterBy, filterWord: filterWord ?? '', page: currentPage);
+          filterBy: filterBy,
+          filterWord: filterWord ?? '',
+          page: currentPageCharacter);
       _characters.value = [..._characters, ...characters];
-      currentPage++;
+      currentPageCharacter++;
       update();
     } catch (e) {
       // ignore: avoid_print
@@ -167,9 +171,9 @@ class HomeController extends GetxController {
     _isLoading.value = true;
     try {
       List<Episode> episodes = await _repository.getEpisodes(
-          filterBy: filterBy, filterWord: filterWord, page: currentPage);
+          filterBy: filterBy, filterWord: filterWord, page: currentPageEpisode);
       _episodes.value = [..._episodes, ...episodes];
-      currentPage++;
+      currentPageEpisode++;
       update();
     } catch (e) {
       // ignore: avoid_print
@@ -184,9 +188,11 @@ class HomeController extends GetxController {
     _isLoading.value = true;
     try {
       List<Location> locations = await _repository.getLocations(
-          filterBy: filterBy, filterWord: filterWord, page: currentPage);
+          filterBy: filterBy,
+          filterWord: filterWord,
+          page: currentPageLocation);
       _locations.value = [..._locations, ...locations];
-      currentPage++;
+      currentPageLocation++;
       update();
     } catch (e) {
       // ignore: avoid_print
