@@ -16,7 +16,8 @@ _A Flutter app to explore characters, episodes, and locations from the Rick and 
 ## Screenshots  
 | Characters Tab | Episodes Tab | Locations Tab |  
 |:--------------:|:------------:|:-------------:|  
-| _Add screenshot_ | _Add screenshot_ | _Add screenshot_ |  
+| ![Characters Tab](assets/screenshots/characters_tab.jpg)   | ![Episodes Tab](assets/screenshots/episodes_tab.jpg)   | ![Locations Tab](assets/screenshots/locations_tab.jpg)   |  
+| ![Character Tab](assets/screenshots/character_tab.jpg)   |  ![Episode Tab](assets/screenshots/episode_tab.jpg)  | ![Location Tab](assets/screenshots/location_tab.jpg)   |
 
 ## Setup and Installation  
 To run this project locally:  
