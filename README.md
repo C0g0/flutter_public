@@ -32,14 +32,14 @@ To run this project locally:
    ```bash
    flutter run
    ```
-##Project Architecture
+## Project Architecture
 This project follows the GetX Pattern, ensuring:
 
 - Separation of concerns.
 - Reactive state management.
 - Clean and maintainable code.
 
-##Future Improvements
+## Future Improvements
 
 - Add search functionality across all tabs.
 - Implement dark mode.
